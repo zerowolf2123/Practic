@@ -5,14 +5,14 @@ using namespace std;
 
 int main() {
 	setlocale(LC_ALL, "ru");
-	cout << "Çàïóñê ïðîãðàììû RSA" << endl << endl;
+	cout << "Ð—Ð°Ð¿ÑƒÑÐº Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¼Ñ‹ RSA" << endl << endl;
 	int p, q, n, fe, e1, d1;
 	int len_e = 0, len_d = 0;
 	int* e = new int[len_e];
 	int* d = new int[5];
-	cout << "Ââåäèòå 'p': ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 'p': ";
 	cin >> p;
-	cout << "Ââåäèòå 'q': ";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ 'q': ";
 	cin >> q;
 	n = q * p;
 	cout << "n = " << n << endl;
@@ -48,14 +48,14 @@ int main() {
 			delete[] new_e;
 		}
 	}
-	cout << "Âñåãî ýëåìåíòîâ â 'å': " << len_e << endl;
-	cout << "Ýëåìåíòû 'e': " << endl;
+	cout << "Ð’ÑÐµÐ³Ð¾ ÑÐ»ÐµÐ¼ÐµÐ½Ñ‚Ð¾Ð² Ð² 'Ðµ': " << len_e << endl;
+	cout << "Ð­Ð»ÐµÐ¼ÐµÐ½Ñ‚Ñ‹ 'e': " << endl;
 	for (int i = 0; i < len_e; i++) {
 		cout << e[i] << endl;
 	}
 	error = 1;
 	while (error == 1) {
-		cout << "Âûáåðèòå ëþáîå çíà÷åíèå èç âûøåïåðå÷èñëåííûõ: ";
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð»ÑŽÐ±Ð¾Ðµ Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð¸Ð· Ð²Ñ‹ÑˆÐµÐ¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÐµÐ½Ð½Ñ‹Ñ…: ";
 		cin >> e1;
 		for (int i = 0; i < len_e; i++) {
 			if (e1 == e[i]) {
@@ -70,15 +70,15 @@ int main() {
 			len_d++;
 		}
 	}
-	cout << "5 çíà÷åíèé d:" << endl;
+	cout << "5 Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ð¹ d:" << endl;
 	for (int i = 0; i < 5; i++) {
 		cout << d[i] << endl;
 	}
-	cout << "\nØèôðîâàíèå\n\n";
+	cout << "\nÐ¨Ð¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ\n\n";
 	int P, E_sh, E_desh;
 	error = 1;
 	while (error == 1) {
-		cout << "Ââåäèòå âàøå P (çíà÷åíèå íå ìîæåò áûòü áîëüøå " << n << "): ";
+		cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ð°ÑˆÐµ P (Ð·Ð½Ð°Ñ‡ÐµÐ½Ð¸Ðµ Ð½Ðµ Ð¼Ð¾Ð¶ÐµÑ‚ Ð±Ñ‹Ñ‚ÑŒ Ð±Ð¾Ð»ÑŒÑˆÐµ " << n << "): ";
 		cin >> P;
 		if (P < n) {
 			error = 0;
@@ -86,11 +86,11 @@ int main() {
 	}
 	E_sh = pow(P, e1);
 	E_sh = E_sh % n;
-	cout << "Çàøèôðîâàííîå E: " << E_sh << endl;
-	cout << "\nÄåøèôðîâàíèå\n\n";
+	cout << "Ð—Ð°ÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ E: " << E_sh << endl;
+	cout << "\nÐ”ÐµÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð¸Ðµ\n\n";
 	error = 1;
 	while (error == 1) {
-		cout << "Âûáåðèòå âàøå d èç âûøåïåðå÷èñëåííûõ: ";
+		cout << "Ð’Ñ‹Ð±ÐµÑ€Ð¸Ñ‚Ðµ Ð²Ð°ÑˆÐµ d Ð¸Ð· Ð²Ñ‹ÑˆÐµÐ¿ÐµÑ€ÐµÑ‡Ð¸ÑÐ»ÐµÐ½Ð½Ñ‹Ñ…: ";
 		cin >> d1;
 		for (int i = 0; i < len_d; i++) {
 			if (d1 == d[i]) {
@@ -101,6 +101,6 @@ int main() {
 	}
 	E_desh = pow(E_sh, d1);
 	E_desh = E_desh % n;
-	cout << "Äåøèôðîâàííîå ñîîáùåíèå: " << E_desh << endl;
+	cout << "Ð”ÐµÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << E_desh << endl;
 	return 0;
 }
