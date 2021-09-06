@@ -32,10 +32,7 @@ int main()
 	}
     //конец сокета
     setlocale(LC_ALL, "RUS");
-    int a;
-    int b;
-    int p;
-    int g;
+    int a, b, p, g;
     cout << "Введите числа g, p " << endl;
     cin >> g >> p;
     cout << "Введите числа a, b " << endl;
@@ -50,7 +47,7 @@ int main()
     int B = (int)Bb;
     B = B % p;
 
-    cout << "B= " << B << endl;
+    cout << "B = " << B << endl;
 
     int Ab = pow(B, a);
     Ab = Ab % p;
@@ -58,5 +55,5 @@ int main()
     Ba = Ba % p;
     cout << Ab << endl;
     cout << Ba << endl;
-    system("pause");
+    return 0;
 }
